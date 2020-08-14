@@ -6,15 +6,16 @@ class Stack
 
     def push(el)
       # adds an element to the stack
-      @stack.push(el)
+      stack.push(el)
+      self
     end
 
     def pop
       # removes one element from the stack
-      if @stack.empty?
-        return @stack
+      if stack.empty?
+        return stack
       else
-        return @stack = @stack[0..-2]
+        return stack = stack[0..-2]
       end
     end
 
@@ -22,14 +23,17 @@ class Stack
       # returns, but doesn't remove, the top element in the stack
       @stack[-1]
     end
+    private
+    attr_reader :stack
   end
 
-  class Queue
+  class My_queue
     def initialize
         @q = []
     end
     def enqueue(el)
         @q << el
+        self
     end
 
     def dequeue
@@ -43,6 +47,10 @@ class Stack
     def peek
         @q[0]
     end
+
+
+    private 
+    attr_reader :q
   end
 
   class Map
@@ -72,7 +80,7 @@ class Stack
     end 
 
     def show
-        @map
+        @map.dup
     end
 
     def keys
@@ -82,3 +90,9 @@ class Stack
     end
 
   end
+
+m = Map.new
+m.set(1,2)
+m.set(3,4)
+m.set([3],[5])
+p m.show
