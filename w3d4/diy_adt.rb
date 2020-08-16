@@ -80,7 +80,7 @@ class Stack
     end 
 
     def show
-        @map.dup #make a dup of the array
+        @map.dup #make a dup copy of the array
     end
 
     def keys
