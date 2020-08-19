@@ -40,9 +40,9 @@ class Simon
 
   def require_sequence
     puts "input color"
-    @seq.each_with_index do |color,i|
+    @seq.each do |color|
       input= gets.chomp
-      if color[i] != input
+      if color != input
         @game_over = true
         break
       end
@@ -54,11 +54,11 @@ class Simon
   end
 
   def round_success_message
-    "Nice"
+    p "Nice"
   end
 
   def game_over_message
-    "GG"
+    p "GG"
   end
 
   def reset_game
@@ -67,3 +67,6 @@ class Simon
     @seq = []
   end
 end
+
+g = Simon.new
+g.play
